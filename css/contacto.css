@@ -1,0 +1,66 @@
+body{
+    box-sizing: border-box;
+    background-color: #EAEBED;
+}
+
+
+#menu {
+    background-color: #000000;
+    background-image: linear-gradient(160deg, #000000 22%, #0d7166 64%);
+    /* background-image: url("https://img.freepik.com/foto-gratis/representacion-fondo-futurista-abstracto-brillantes-luces-neon-azul-naranja_181624-19807.jpg?w=2000"); */
+}
+
+/* ================NOMBRE PAGINA==================== */
+
+.navbar-brand {
+    max-width: 10px;
+}
+
+/* ============ MARGEN EN PANTALLA COMPLETA================== */
+@media (min-width:768px) {
+
+    .collapse {
+        margin-left: 6rem;
+    }
+
+}
+
+
+.bg img {
+    height: 600px !important;
+}
+
+/* =============BOTON SUSCRIBIRSE========= */
+
+.btnSus {
+    border: none;
+}
+
+
+
+/* =================IMAGEN=========================== */
+
+.imagen img{
+    height: 65rem;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.imagen img:hover{
+    transform: rotate(15deg);
+    cursor: pointer;
+}
+
+/* =============TEXTO DERECHA=========================== */
+
+.titulo h1{
+    display: inline-block;
+    font-size: 4rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #006989;
+}
+.titulo p{
+ padding-bottom: 25px;
+    border-bottom: gray solid 5px;
+}
