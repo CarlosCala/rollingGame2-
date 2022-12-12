@@ -43,20 +43,18 @@ export const campoRequerido = (input) => {
     campoProducto,
     campoDescripcion,
     campoCategoria,
-    campoUrl
+      campoUrl
   ) => {
     //comprobar que pasen cada una validaciones y si no pasan mostrar el alert
     // console.log('desde validar general');
     //console.log(e);
     let alerta = document.querySelector("#msjAlerta");
     if (
-      // campoRequerido(campoCodigo) &&
-      campoRequerido(campoProducto) &&
+       campoRequerido(campoProducto) &&
       campoRequerido(campoDescripcion) &&
       campoRequerido(campoCategoria) &&
       validarUrl(campoUrl)
     ) {
-      console.log("validación correcta los datos están listo para ser enviados");
       alerta.className = "alert alert-danger mt-4 d-none";
       return true;
     } else {
