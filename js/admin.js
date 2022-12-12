@@ -116,8 +116,10 @@ function crearProducto() {
     'success'
   )
   // cargar productos en  la tabla
-  crearFila(productoNuevo)
+  crearFila(productoNuevo);
+//  asignar no publicados a los productos nuevamente
 
+ juegoPublicado = "no publicado";
 }
 
 
