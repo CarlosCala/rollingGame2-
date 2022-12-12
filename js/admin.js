@@ -18,7 +18,7 @@ let formularioProducto = document.querySelector("#formProducto");
 
 let btnPublicado = document.querySelector("#btnPublicado");
  
-let productoExistente = false; //variable bandera: si es false quiere crear producto, si es true modificar producto
+let productoExistente = false  ; //variable bandera: si es false quiere crear producto, si es true modificar producto
 
 // si hay productos en el local storage ,quiero guardar en el array de productos
 // y si no que sea un array vacio
@@ -29,9 +29,7 @@ let listaProducto = JSON.parse(localStorage.getItem("arrayProductoKey")) || [];
 
 // btn publicado true o false
 
-let juegoPublicado = false ;
-
-console.log(juegoPublicado);
+let juegoPublicado = "no publicado" ;
 
 
 campoProducto.addEventListener("blur", () => {
@@ -104,11 +102,9 @@ function crearProducto() {
     juegoPublicado,
     campoUrl.value
   );
-  console.log(productoNuevo);
   //guardar cada objeto (producto) en un array de productos
   listaProducto.push(productoNuevo);
-  console.log(listaProducto);
-  //limpiar formulario
+   //limpiar formulario
   limpiarFormulario();
   // guardar los productos dentro del localStorage
   guardarLocalStorage()
@@ -195,8 +191,6 @@ function cargaInicial() {
 
 
 window.prepararEdicionProducto = function (codigo) {
-  console.log("desde editar");
-  console.log(codigo);
   // buscar el producto en el array 
 
   let productoBuscado = listaProducto.find((itemProducto) => {
@@ -205,13 +199,13 @@ window.prepararEdicionProducto = function (codigo) {
 
   })
 
-  console.log(productoBuscado);
   //mostrar el producto encontrado en el formulario
 
   campoCodigo.value = productoBuscado.codigo;
   campoProducto.value = productoBuscado.producto;
   campoDescripcion.value = productoBuscado.descripcion;
   campoCategoria.value= productoBuscado.categoria;
+   juegoPublicado = juegoPublicado;
     campoUrl.value = productoBuscado.url;
   // cambiar la bandera de producto ecistente
 
@@ -221,27 +215,19 @@ window.prepararEdicionProducto = function (codigo) {
 }
 
 // funcion para alternar el estado del juego Publicado/No publicado
-function productoPublicado(producto) {
-  
-  
-  juegoPublicado = true;
+function productoPublicado() {
 
-if(juegoPublicado) {
-  juegoPublicado = "publicado"
-} else {
-  juegoPublicado ="no Publicado"
-}
-  
-} 
+juegoPublicado = "publicado" ;
+
+console.log("desde juego publicado");
+
+ } 
 
 
 function modificarProducto() {
 
-  console.log("desde modificar producto");
-  //  encontrar la posicion del elemento que quiero modificar dentro del array de productos
+ //  encontrar la posicion del elemento que quiero modificar dentro del array de productos
 
-  console.log(listaProducto);
-  console.log(campoCodigo.value);
 
   let indiceProducto = listaProducto.findIndex((itemProducto) => {
 
@@ -249,14 +235,13 @@ function modificarProducto() {
     return itemProducto.codigo === parseInt(campoCodigo.value);
   });
 
-  console.log(indiceProducto);
   // modificar los valores dentro de los elementos del array
 
   listaProducto[indiceProducto].producto = campoProducto.value;
   listaProducto[indiceProducto].descripcion = campoDescripcion.value;
-listaProducto[indiceProducto].categoria = campoCategoria.value;
-
-  listaProducto[indiceProducto].url = campoUrl.value;
+ listaProducto[indiceProducto].categoria = campoCategoria.value;
+ listaProducto[indiceProducto].publicado =  juegoPublicado ;
+listaProducto[indiceProducto].url = campoUrl.value;
 
   // actualizar en el local storage
 
@@ -290,20 +275,6 @@ function borrarTabla() {
 // preparar para borrar producto
 window.borrarProducto = function (codigo) {
 
-
-  console.log("desde borrar producto");
-  console.log(codigo);
-  // encontrar la posicion del elemento del array
-
-  //opcion 1
-  // let indiceProducto = listaProducto.findIndex((itemProducto) => {
-
-  //  con el parseInt convierto a numero el stgring a comparar ya que el codigo generado por "CODIGO UNICO" era num 
-  //   return itemProducto.codigo === parseInt(campoCodigo.value);
-  // });
-
-  // listaProducto.splice(indiceProducto,1)
-  // opcion 2 usando filter 
 Swal.fire({
     title: 'estas seguro que deseas eliminarlo',
     text: "esta accion no podra ser revertida",
@@ -318,11 +289,7 @@ Swal.fire({
       let nuevaListaProducto = listaProducto.filter((itemProducto) => {
         return itemProducto.codigo !== parseInt(codigo);
       });
-    
-    
-     console.log(nuevaListaProducto);
-    
-      // actualizar en el arreglo original y el local storage
+    // actualizar en el arreglo original y el local storage
     
       listaProducto = nuevaListaProducto;
       guardarLocalStorage();
