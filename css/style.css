@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* COLORES */
+:root {
+    --bg-color: #000814;
+    --bg-color2: #001D3D;
+    --bg-color3: #003566;
+    --font-color: #FFC300;
+    --font-color2: #FFD60A;
+
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #EDF2F4;
+}
+
+.navbar {
+    background-color: #FAF102 !important;
+}
+
+
+
+
+/* SECCION HOME (FOTO DE PORTADA) */
+section {
+    padding: 4rem 0 3rem;
+}
+
+.home {
+    position: relative;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 5rem;
+}
+
+.home img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -10;
+}
+
+.home-text {
+    padding-right: 4rem;
+    text-align: right;
+    color: darkslategray;
+    margin-bottom: 1rem;
+}
+
+.home-text a {
+    background-color: #ef476f;
+}
+
+.btn {
+    background: var(--bg-color);
+    color: #EDF2F4;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 16% 100%, 0% 65%);
+}
+
+.btn:hover {
+    background: #EDF2F4;
+    color: #000814;
+    transition: 0.3s all linear;
+}
+
+/*tituloTendencia*/
+.tituloTendencia {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+
+}
+
+.tituloTendencia .bx {
+    font-size: 28px;
+    color: #000814;
+    background: #F9F000;
+    padding: 10px;
+    border-radius: 5rem;
+}
+
+.tituloTendencia h2 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    width: 200px;
+    height: 300px;
+    border: 5px;
+    background: var(--i);
+    background-size: cover;
+    box-shadow: 3px 5px 5px rgba(3, 32, 51, .8);
+    transition: all ease-in-out 0.2s;
+
+
+}
+
+.box:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    position: relative;
+
+}
+
+
+/* FOOTER */
+.redes {
+    font-size: 2.5rem;
+    color: #000814;
+}
+
+
+/*VIDEO */
+video-container video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    margin: 0 auto;
+}
+
+#footer {
+    background-color: var(--font-color2);
+}
+
+#footer .subtituloFooter {
+    background: var(--bg-color2);
+    color: #EDF2F4;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    clip-path: polygon(100% 0%, 100% 52%, 100% 100%, 6% 100%, 0% 50%, 6% 0);
+}
+
+#footer .subtituloFooter:hover {
+    cursor: pointer;
+    background-color: #003670;
+    color: #EDF2F4;
+    transition: 0.3s all ease;
+}
+
+/* BANNER DEL CENTRO CON MENSAJES */
+.contenedorbanner{
+    background-color: #003566;
+}
+
+.msjPromo {
+    background-color: transparent;
+
+}
+
+.msjPromo .col {
+    border-right: 2px #EDF2F4 solid;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.msjPromo i {
+    font-size: 50px;
+    justify-items: center;
+    padding-bottom: 1.5rem;
+    color: var(--font-color2);
+}
+
+.msjPromo p {
+    font-size: 0.9rem;
+    text-align: center;
+    color: #b8b8b8;
+}
